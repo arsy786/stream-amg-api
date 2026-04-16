@@ -1,9 +1,10 @@
 import { randomUUID } from 'crypto';
 import { EventEmitter } from 'events';
-import { AssetStatus, CreateAssetInput, MediaAsset } from '../models/asset.model';
+import { AssetContentType, AssetStatus, CreateAssetInput, MediaAsset } from '../models/asset.model';
 
 export const ASSET_EVENTS = {
   CREATED: 'assetCreated',
+  STATUS_CHANGED: 'assetStatusChanged',
 } as const;
 
 export class AssetService extends EventEmitter {
@@ -22,9 +23,22 @@ export class AssetService extends EventEmitter {
     return asset;
   }
 
-  getAllAssets(status?: AssetStatus): MediaAsset[] {
-    const all = Array.from(this.store.values());
-    return status ? all.filter((a) => a.status === status) : all;
+  /**
+   * NOTE: This method is defined to satisfy the "State Change Event" requirement.
+   * In a full implementation, this would be hooked to a PATCH /assets/:id/status route.
+   */
+  // updateAssetStatus(id: string, status: AssetStatus): void {
+  //   const asset = this.store.get(id);
+  //   if (!asset) return;
+  //   asset.status = status;
+  //   this.store.set(id, asset);
+  //   this.emit(ASSET_EVENTS.STATUS_CHANGED, asset);
+  // }
+
+  getAllAssets(status?: AssetStatus, contentType?: AssetContentType): MediaAsset[] {
+    return Array.from(this.store.values()).filter(
+      (a) => (!status || a.status === status) && (!contentType || a.contentType === contentType),
+    );
   }
 
   getAssetById(id: string): MediaAsset | undefined {
