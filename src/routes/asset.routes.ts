@@ -6,7 +6,7 @@ import { AssetService } from '../services/asset.service';
 
 const router = Router();
 
-const assetService = new AssetService();
+export const assetService = new AssetService();
 const assetController = new AssetController(assetService);
 
 router.post('/', validate(CreateAssetSchema), assetController.createAsset);

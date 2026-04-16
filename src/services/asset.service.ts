@@ -44,4 +44,8 @@ export class AssetService extends EventEmitter {
   getAssetById(id: string): MediaAsset | undefined {
     return this.store.get(id);
   }
+
+  clearStore(): void {
+    this.store.clear();
+  }
 }
