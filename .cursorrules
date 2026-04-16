@@ -1,0 +1,28 @@
+# StreamAMG Technical Assessment Rules
+
+## Tech Stack
+
+- Node.js (TypeScript)
+- Express
+- Jest / Supertest
+- Zod (Validation)
+- Native Node.js EventEmitter
+
+## Architecture Principles
+
+- **Extreme Pragmatism:** Favor simple, readable code over complex patterns.
+- **Layers:** Routes -> Controller -> Service.
+- **Data:** Use an in-memory `Map<string, Asset>` within the Service. No external DBs or ORMs.
+- **Dependency Injection:** Use simple constructor injection.
+
+## Coding Standards
+
+- No `any` types. Use strict TypeScript.
+- Every endpoint must have a Zod validation schema.
+- Business logic (including Events) must live in the Service, not the Controller.
+- Use `crypto.randomUUID()` for IDs.
+
+## AI Workflow
+
+- When generating code, explain the trade-offs made.
+- If a suggestion feels like "over-engineering," warn the user.
