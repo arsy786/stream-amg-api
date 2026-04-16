@@ -1,6 +1,6 @@
 # Stream AMG Media Asset API
 
-A PoC REST API for managing media assets, built in Node.js + TypeScript. The goal was to demonstrate clean architecture, event-driven thinking, and pragmatic decision-making under time constraints.
+A PoC REST API for managing media assets, built in Node.js + TypeScript. The goal was to demonstrate clean architecture, event-driven thinking, and pragmatic decision-making under time constraints. Task brief: [`brief-notes.pdf`](./brief-notes.pdf)
 
 ## Getting Started
 
