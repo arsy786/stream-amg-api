@@ -161,4 +161,4 @@ src/
 
 ## AI Development Process
 
-This project was built collaboratively with Cursor and Claude 4.6 Sonnet. Full documentation of is available in in [`AI_PROCESS.MD`](./AI_PROCESS.MD).
+This project was built collaboratively with Cursor and Claude 4.6 Sonnet. Full documentation of is available in in [`AI_PROCESS.md`](./AI_PROCESS.md).
